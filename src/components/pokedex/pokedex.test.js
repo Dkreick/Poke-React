@@ -1,8 +1,8 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import Pokedex from './pokedex';
+import React from "react";
+import { render } from "@testing-library/react";
+import Pokedex from "./pokedex";
 
-test('renders learn react link', () => {
+test("renders learn react link", () => {
   const { getByText } = render(<Pokedex />);
   const linkElement = getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
