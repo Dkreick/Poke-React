@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/poke-react/static/css/main.de5618a2.chunk.css",
-    "main.js": "/poke-react/static/js/main.52aa5f89.chunk.js",
-    "main.js.map": "/poke-react/static/js/main.52aa5f89.chunk.js.map",
+    "main.css": "/poke-react/static/css/main.0f7a3438.chunk.css",
+    "main.js": "/poke-react/static/js/main.5d460190.chunk.js",
+    "main.js.map": "/poke-react/static/js/main.5d460190.chunk.js.map",
     "runtime-main.js": "/poke-react/static/js/runtime-main.7dcae330.js",
     "runtime-main.js.map": "/poke-react/static/js/runtime-main.7dcae330.js.map",
-    "static/js/2.e59b1f5c.chunk.js": "/poke-react/static/js/2.e59b1f5c.chunk.js",
-    "static/js/2.e59b1f5c.chunk.js.map": "/poke-react/static/js/2.e59b1f5c.chunk.js.map",
+    "static/js/2.d7dd349d.chunk.js": "/poke-react/static/js/2.d7dd349d.chunk.js",
+    "static/js/2.d7dd349d.chunk.js.map": "/poke-react/static/js/2.d7dd349d.chunk.js.map",
     "index.html": "/poke-react/index.html",
-    "precache-manifest.4c7c63afcb8b668dcd9954c2d0a07c5c.js": "/poke-react/precache-manifest.4c7c63afcb8b668dcd9954c2d0a07c5c.js",
+    "precache-manifest.b52f8f2d820a560a7f71a9ba6776d670.js": "/poke-react/precache-manifest.b52f8f2d820a560a7f71a9ba6776d670.js",
     "service-worker.js": "/poke-react/service-worker.js",
-    "static/css/main.de5618a2.chunk.css.map": "/poke-react/static/css/main.de5618a2.chunk.css.map",
-    "static/js/2.e59b1f5c.chunk.js.LICENSE.txt": "/poke-react/static/js/2.e59b1f5c.chunk.js.LICENSE.txt"
+    "static/css/main.0f7a3438.chunk.css.map": "/poke-react/static/css/main.0f7a3438.chunk.css.map",
+    "static/js/2.d7dd349d.chunk.js.LICENSE.txt": "/poke-react/static/js/2.d7dd349d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7dcae330.js",
-    "static/js/2.e59b1f5c.chunk.js",
-    "static/css/main.de5618a2.chunk.css",
-    "static/js/main.52aa5f89.chunk.js"
+    "static/js/2.d7dd349d.chunk.js",
+    "static/css/main.0f7a3438.chunk.css",
+    "static/js/main.5d460190.chunk.js"
   ]
 }
