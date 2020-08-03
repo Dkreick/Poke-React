@@ -1,11 +1,23 @@
 import React, { Component } from "react";
 import MaterialTable from "material-table";
+import "./pokedex.scss";
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
 
 class Pokedex extends Component {
-  state = { rows: [] };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      rows: [],
+      pokemonData: {}
+    };
+  }
 
   componentDidMount() {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=20")
       .then((response) => response.json())
       .then((allpokemon) => {
         allpokemon.results.forEach((pokemon) => {
@@ -20,7 +32,6 @@ class Pokedex extends Component {
     fetch(url)
       .then((response) => response.json())
       .then((pokeData) => {
-        console.log(pokeData);
         this.setState((prevState) => ({
           rows: [...prevState.rows, pokeData],
         }));
@@ -29,22 +40,39 @@ class Pokedex extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <MaterialTable
+          title="Pokedex Table"
           columns={[
-            { title: "Name", field: "name" },
-            { title: "Soyadı", field: "surname" },
-            { title: "Doğum Yılı", field: "birthYear", type: "numeric" },
+            { title: 'Number', field: 'id' },
+            { title: 'Name', field: 'name' },
+            { title: 'Type', field: 'type' },
             {
-              title: "Doğum Yeri",
-              field: "birthCity",
-              lookup: { 34: "İstanbul", 63: "Şanlıurfa" },
-            },
+              field: 'url',
+              title: 'Preview',
+              render: rowData => <img src={rowData.sprites.front_default} alt="" style={{ width: 50 }} />
+            }
           ]}
           data={this.state.rows}
-          title="Demo Title"
+          onRowClick={rowData => {
+            this.setState({ dialogOpen: true});
+            this.setState({ currentPokemon: {rowData}});
+
+            console.log(this.state.currentPokemon)
+          }}
         />
-      </div>
+        <Dialog
+          open={this.state.dialogOpen}
+          aria-labelledby="draggable-dialog-title"
+        >
+          <DialogTitle id="draggable-dialog-title">Pokemon Info</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              {/* {this.state.currentPokemon} */}
+            </DialogContentText>
+          </DialogContent>
+        </Dialog>
+      </div >
     );
   }
 }
