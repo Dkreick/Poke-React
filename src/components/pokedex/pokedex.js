@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 import MaterialTable from "material-table";
 import "./pokedex.scss";
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
+import ConfirmDialog from "../dialog/dialog"
 
 class Pokedex extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       rows: [],
-      pokemonData: {}
     };
   }
 
@@ -44,35 +39,35 @@ class Pokedex extends Component {
         <MaterialTable
           title="Pokedex Table"
           columns={[
-            { title: 'Number', field: 'id' },
-            { title: 'Name', field: 'name' },
-            { title: 'Type', field: 'type' },
+            { title: "Number", field: "id" },
+            { title: "Name", field: "name" },
+            { title: "Type", field: "type" },
             {
-              field: 'url',
-              title: 'Preview',
-              render: rowData => <img src={rowData.sprites.front_default} alt="" style={{ width: 50 }} />
-            }
+              field: "url",
+              title: "Preview",
+              render: (rowData) => (
+                <img
+                  src={rowData.sprites.front_default}
+                  alt=""
+                  style={{ width: 50 }}
+                />
+              ),
+            },
           ]}
-          data={this.state.rows}
-          onRowClick={rowData => {
-            this.setState({ dialogOpen: true});
-            this.setState({ currentPokemon: {rowData}});
-
-            console.log(this.state.currentPokemon)
+          detailPanel={rowData => {
+            return (
+              <ConfirmDialog
+                data={rowData}
+                open={true}
+                setOpen={true}
+              >
+              </ConfirmDialog>
+            )
           }}
+          data={this.state.rows}
+          onRowClick={(event, rowData, togglePanel) => togglePanel()}
         />
-        <Dialog
-          open={this.state.dialogOpen}
-          aria-labelledby="draggable-dialog-title"
-        >
-          <DialogTitle id="draggable-dialog-title">Pokemon Info</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              {/* {this.state.currentPokemon} */}
-            </DialogContentText>
-          </DialogContent>
-        </Dialog>
-      </div >
+      </div>
     );
   }
 }
