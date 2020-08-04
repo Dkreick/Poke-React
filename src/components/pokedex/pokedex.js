@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MaterialTable from "material-table";
 import "./pokedex.scss";
-import ConfirmDialog from "../dialog/dialog"
+import ConfirmDialog from "../dialog/dialog";
 
 class Pokedex extends Component {
   constructor(props) {
@@ -54,15 +54,14 @@ class Pokedex extends Component {
               ),
             },
           ]}
-          detailPanel={rowData => {
+          detailPanel={(rowData) => {
             return (
               <ConfirmDialog
                 data={rowData}
                 open={true}
                 setOpen={true}
-              >
-              </ConfirmDialog>
-            )
+              ></ConfirmDialog>
+            );
           }}
           data={this.state.rows}
           onRowClick={(event, rowData, togglePanel) => togglePanel()}
