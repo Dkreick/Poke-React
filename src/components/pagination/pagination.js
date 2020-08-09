@@ -1,7 +1,7 @@
-import React from 'react'
-import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import IconButton from '@material-ui/core/IconButton';
+import React from "react";
+import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import IconButton from "@material-ui/core/IconButton";
 
 export default function Pagination({ gotoNextPage, gotoPrevPage }) {
   return (
@@ -13,5 +13,5 @@ export default function Pagination({ gotoNextPage, gotoPrevPage }) {
         <NavigateNextIcon />
       </IconButton>
     </div>
-  )
+  );
 }

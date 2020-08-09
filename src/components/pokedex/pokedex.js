@@ -1,48 +1,53 @@
-
-import React, { useState, useEffect } from 'react';
-import PokemonList from '../pokemon-list/pokemonList'
-import axios from 'axios'
-import Pagination from '../pagination/pagination';
+import React, { useState, useEffect } from "react";
+import PokemonList from "../pokemon-list/pokemonList";
+import axios from "axios";
+import Pagination from "../pagination/pagination";
 
 function Pokedex() {
-  const [pokemon, setPokemon] = useState([])
-  const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon?limit=5")
-  const [nextPageUrl, setNextPageUrl] = useState()
-  const [prevPageUrl, setPrevPageUrl] = useState()
-  const [loading, setLoading] = useState(true)
+  const [pokemon, setPokemon] = useState([]);
+  const [currentPageUrl, setCurrentPageUrl] = useState(
+    "https://pokeapi.co/api/v2/pokemon?limit=5"
+  );
+  const [nextPageUrl, setNextPageUrl] = useState();
+  const [prevPageUrl, setPrevPageUrl] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true)
-    let cancel
-    axios.get(currentPageUrl, {
-      cancelToken: new axios.CancelToken(c => cancel = c)
-    }).then(res => {
-      setLoading(false)
-      setNextPageUrl(res.data.next)
-      setPrevPageUrl(res.data.previous)
-      res.data.results.map(p => {
-        axios.get(p.url, {
-          cancelToken: new axios.CancelToken(c => cancel = c)
-        }).then(res => {
-          setPokemon(pokemon => [...pokemon, res.data])
-        })
+    setLoading(true);
+    let cancel;
+    axios
+      .get(currentPageUrl, {
+        cancelToken: new axios.CancelToken((c) => (cancel = c)),
       })
-    })
+      .then((res) => {
+        setLoading(false);
+        setNextPageUrl(res.data.next);
+        setPrevPageUrl(res.data.previous);
+        res.data.results.map((p) => {
+          axios
+            .get(p.url, {
+              cancelToken: new axios.CancelToken((c) => (cancel = c)),
+            })
+            .then((res) => {
+              setPokemon((pokemon) => [...pokemon, res.data]);
+            });
+        });
+      });
 
-    return () => cancel()
-  }, [currentPageUrl])
+    return () => cancel();
+  }, [currentPageUrl]);
 
   function gotoNextPage() {
     setPokemon([]);
-    setCurrentPageUrl(nextPageUrl)
+    setCurrentPageUrl(nextPageUrl);
   }
 
   function gotoPrevPage() {
     setPokemon([]);
-    setCurrentPageUrl(prevPageUrl)
+    setCurrentPageUrl(prevPageUrl);
   }
 
-  if (loading) return "Loading..."
+  if (loading) return "Loading...";
   return (
     <>
       <PokemonList pokemon={pokemon} />
