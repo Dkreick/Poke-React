@@ -41,6 +41,7 @@ export default function PokemonList({ pokemon }) {
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleOpen = (data) => {
+    console.log(data)
     setselectedPokemon(data);
     setOpen(true);
   };
@@ -64,7 +65,6 @@ export default function PokemonList({ pokemon }) {
         <TableBody>
           {pokemon.map((pokemon) => (
             <TableRow key={pokemon.name} onClick={() => handleOpen(pokemon)}>
-              {/* <TableRow key={pokemon.name} onClick={handleOpen(pokemon)}> */}
               <TableCell component="th" scope="row">
                 {pokemon.id}
               </TableCell>
@@ -85,17 +85,15 @@ export default function PokemonList({ pokemon }) {
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
-          {"Use Google's location service?"}
+          {selectedPokemon.name}
         </DialogTitle>
         <DialogContent>
+          {/* <img src={selectedPokemon.sprites.front_default} alt=""></img> */}
           <DialogContentText>{selectedPokemon.name}</DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">
-            Disagree
-          </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            Agree
+            Close
           </Button>
         </DialogActions>
       </Dialog>
