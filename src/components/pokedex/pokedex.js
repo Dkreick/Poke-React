@@ -31,6 +31,7 @@ function Pokedex() {
             .then((res) => {
               setPokemon((pokemon) => [...pokemon, res.data]);
             });
+            return [];
         });
       });
 

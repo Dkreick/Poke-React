@@ -41,7 +41,7 @@ export default function PokemonList({ pokemon }) {
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleOpen = (data) => {
-    console.log(data)
+    console.log(data);
     setselectedPokemon(data);
     setOpen(true);
   };
