@@ -1,5 +1,18 @@
 {
-  "welcome": {
-    "title": "Welcome"
+  "layout": {
+    "title": "Pokedex with React"
+  },
+  "table": {
+    "name": "Name",
+    "type": "Type",
+    "weight": "Weight",
+    "preview": "Preview"
+  },
+  "modal": {
+    "name": "Name",
+    "weight": "Weight",
+    "height": "Height",
+    "skills": "Skills",
+    "close": "Close"
   }
 }
