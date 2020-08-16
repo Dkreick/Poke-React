@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Dialog from "@material-ui/core/Dialog";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -28,8 +28,6 @@ const useStyles = makeStyles({
 export default function DetailModal(props) {
   const classes = useStyles();
   const { t } = useTranslation("common");
-
-  console.log(props);
 
   function handleClose(event) {
     props.onChange(event.target.value);
@@ -73,13 +71,13 @@ export default function DetailModal(props) {
                   : null}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-              {t("modal.weight")}: {props.data.weight / 10} Kg
+                {t("modal.weight")}: {props.data.weight / 10} Kg
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-              {t("modal.height")}: {props.data.height / 10} m
+                {t("modal.height")}: {props.data.height / 10} m
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-              {t("modal.skills")}:{" "}
+                {t("modal.skills")}:{" "}
                 {props.data.abilities
                   ? props.data.abilities.map(
                       (skill) => skill.ability.name + " "
@@ -91,7 +89,7 @@ export default function DetailModal(props) {
           </CardActionArea>
           <CardActions>
             <Button size="small" onClick={handleClose}>
-            {t("modal.close")}
+              {t("modal.close")}
             </Button>
           </CardActions>
         </Card>

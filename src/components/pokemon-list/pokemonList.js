@@ -6,7 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import { useTranslation } from "react-i18next";
-import DetailModal from "../detail/detail"
+import DetailModal from "../detail/detail";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     width: "50%",
   },
   name: {
-    textTransform: "capitalize"
-  }
+    textTransform: "capitalize",
+  },
 }));
 
 export default function PokemonList({ pokemon }) {
@@ -54,8 +54,12 @@ export default function PokemonList({ pokemon }) {
               <TableCell component="th" scope="row">
                 {pokemon.id}
               </TableCell>
-              <TableCell className={classes.name} align="center">{pokemon.name}</TableCell>
-              <TableCell className={classes.name} align="center">{pokemon.types.map((type) => type.type.name + " ")}</TableCell>
+              <TableCell className={classes.name} align="center">
+                {pokemon.name}
+              </TableCell>
+              <TableCell className={classes.name} align="center">
+                {pokemon.types.map((type) => type.type.name + " ")}
+              </TableCell>
               <TableCell align="center">{pokemon.weight / 10} Kg</TableCell>
               <TableCell align="center">
                 <img src={pokemon.sprites.front_default} alt=""></img>
@@ -64,7 +68,7 @@ export default function PokemonList({ pokemon }) {
           ))}
         </TableBody>
       </Table>
-      <DetailModal open={open} onChange={handleClose} data={selectedPokemon}/>
+      <DetailModal open={open} onChange={handleClose} data={selectedPokemon} />
     </div>
   );
 }
