@@ -73,7 +73,6 @@ export default function DetailModal(props) {
                   ? props.data.sprites.other["official-artwork"].front_default
                   : null
               }
-
               alt=""
             />
             <Typography
