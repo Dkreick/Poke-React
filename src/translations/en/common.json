@@ -10,9 +10,9 @@
   },
   "modal": {
     "name": "Name",
+    "type": "Type",
     "weight": "Weight",
     "height": "Height",
-    "skills": "Skills",
-    "close": "Close"
+    "skills": "Skills"
   }
 }

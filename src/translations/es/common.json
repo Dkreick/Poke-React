@@ -10,9 +10,9 @@
   },
   "modal": {
     "name": "Nombre",
+    "type": "Tipo",
     "weight": "Peso",
     "height": "Altura",
-    "skills": "Habilidades",
-    "close": "Cerrar"
+    "skills": "Habilidades"
   }
 }
