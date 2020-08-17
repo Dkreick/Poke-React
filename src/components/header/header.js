@@ -6,6 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import Switch from "@material-ui/core/Switch";
+import UsFlag from "./../../assets/flag-us.png";
+import EsFlag from "./../../assets/flag-es.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,6 +15,13 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     backgroundColor: "#CC0000",
+  },
+  switch: {
+    display: "flex",
+  },
+  image: {
+    height: 28,
+    paddingTop: 5,
   },
   title: {
     flexGrow: 1,
@@ -40,12 +49,15 @@ export default function Header() {
           <Typography variant="h6" className={classes.title}>
             {t("layout.title")}
           </Typography>
-          <Switch
-            checked={isSpanish}
-            onChange={handleChange}
-            name="checkedA"
-            inputProps={{ "aria-label": "primary checkbox" }}
-          />
+          <div className={classes.switch}>
+            <img src={UsFlag} className={classes.image} alt="" />
+            <Switch
+              checked={isSpanish}
+              onChange={handleChange}
+              color="primary"
+            />
+            <img src={EsFlag} className={classes.image} alt="" />
+          </div>
         </Toolbar>
       </AppBar>
     </div>
